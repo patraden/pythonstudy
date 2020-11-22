@@ -1,4 +1,5 @@
-"""The LinkedList code from before is provided below.
+"""
+The LinkedList code from before is provided below.
 Add three functions to the LinkedList.
 "get_position" returns the element at a certain position.
 The "insert" function will add an element to a particular
@@ -6,15 +7,52 @@ spot in the list.
 "delete" will delete the first element with that
 particular value.
 Then, use "Test Run" and "Submit" to run the test cases
-at the bottom."""
+at the bottom
 
-"""Add a couple methods to our LinkedList class,
+Add a couple methods to our LinkedList class,
 and use that to implement a Stack.
 You have 4 functions below to fill in:
 insert_first, delete_first, push, and pop.
 Think about this while you're implementing:
 why is it easier to add an "insert_first"
-function than just use "append"?"""
+function than just use "append"?
+
+>>> e1 = Element(1)
+>>> e2 = Element(2)
+>>> e3 = Element(3)
+>>> e4 = Element(4)
+>>> ll = LinkedList(e1)
+>>> ll.append(e2)
+>>> ll.append(e3)
+>>> print (ll.head.next.next.value)
+3
+>>> print (ll.get_position(3).value)
+3
+>>> ll.insert(e4,3)
+>>> print (ll.get_position(3).value)
+4
+>>> ll.delete(1)
+>>> print (ll.get_position(1).value)
+2
+>>> print (ll.get_position(2).value)
+4
+>>> print (ll.get_position(3).value)
+3
+>>> stack = Stack(e1)
+>>> stack.push(e2)
+>>> stack.push(e3)
+>>> print (stack.pop().value)
+3
+>>> print (stack.pop().value)
+2
+>>> print (stack.pop().value)
+1
+>>> print (stack.pop().value)
+None
+>>> stack.push(e4)
+>>> print (stack.pop().value)
+4
+"""
 
 class Element(object):
     def __init__(self, value):
@@ -105,54 +143,6 @@ class Stack(LinkedList):
         "Pop (remove) the first element off the top of the stack and return it"
         return self.delete_first()
 
-## Test cases
-## Set up some Elements
-#e1 = Element(1)
-#e2 = Element(2)
-#e3 = Element(3)
-#e4 = Element(4)
-#
-## Start setting up a LinkedList
-#ll = LinkedList(e1)
-#ll.append(e2)
-#ll.append(e3)
-#
-## Test get_position
-## Should print 3
-#print (ll.head.next.next.value)
-## Should also print 3
-#print (ll.get_position(3).value)
-#
-## Test insert
-#ll.insert(e4,3)
-## Should print 4 now
-#print (ll.get_position(3).value)
-#
-## Test delete
-#ll.delete(1)
-## Should print 2 now
-#print (ll.get_position(1).value)
-## Should print 4 now
-#print (ll.get_position(2).value)
-## Should print 3 now
-#print (ll.get_position(3).value)
-
-# Test cases
-# Set up some Elements
-e1 = Element(1)
-e2 = Element(2)
-e3 = Element(3)
-e4 = Element(4)
-
-# Start setting up a Stack
-stack = Stack(e1)
-
-# Test stack functionality
-stack.push(e2)
-stack.push(e3)
-print (stack.pop().value)
-print (stack.pop().value)
-print (stack.pop().value)
-print (stack.pop())
-stack.push(e4)
-print (stack.pop().value)
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose=False)
