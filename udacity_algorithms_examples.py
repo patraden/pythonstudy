@@ -62,8 +62,8 @@ def quicksort(A:list, s:int,e:int):
     m=s
     while m<p:
         while A[m]>A[p]:
-            A[m],A[p-1]=A[p-1],A[m] #swap m with pivot value
-            A[p],A[p-1]=A[p-1],A[p] #swap pivot predecessor with pivot value
+            A[m],A[p-1]=A[p-1],A[m] #swap m with pivot
+            A[p],A[p-1]=A[p-1],A[p] #swap pivot and its predecessor
             p-=1
         m+=1
     return quicksort(A,s,p-1)+[A[p]]+quicksort(A,p+1,e)
