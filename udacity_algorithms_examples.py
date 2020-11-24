@@ -1,6 +1,5 @@
 """
-Tests for doctest module.
-
+Test cases for module.
 >>> test = [21, 4, 1, 3, 9, 20, 25, 6, 21, 14]
 >>> print (quicksort(test,0,len(test)-1))
 [1, 3, 4, 6, 9, 14, 20, 21, 21, 25]
@@ -40,7 +39,7 @@ def binary_search(input_array:list, value:int):
 
 def get_fib(n:int):
     """
-    Returns Nth Fobonacci number.
+    Returns Nth Fibonacci number.
     Simple reccursive example.
     """
     if n<0:
@@ -71,4 +70,4 @@ def quicksort(A:list, s:int,e:int):
 
 if __name__ == "__main__":
     import doctest
-    doctest.testmod(verbose=True)
+    doctest.testmod(verbose=False)
