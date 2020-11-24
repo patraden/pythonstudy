@@ -34,24 +34,29 @@ def get_fib(position):
     else:
         return get_fib(position-1)+get_fib(position-2)
 
-def quicksort(array):
-    p_index=len(array)-1
-    if p_index==0 or p_index==-1:
-        return array
-    else:
-        m=0
-        while m < p_index:
-            while array[m]>array[p_index]:
-                array[m],array[p_index-1] = array[p_index-1],array[m]
-                array[p_index],array[p_index-1] = array[p_index-1],array[p_index]
-                p_index-=1
-            m+=1
-        return quicksort(array[:p_index])+[array[p_index]]+quicksort(array[p_index+1:])
+def quicksort(A:list, s:int,e:int):
+    """
+    Quicksort where pivot value is the last element in a list.
+    Takes array with start and end indexes as arguments to minimize memory consumption.
+    """
+    if s==e:
+        return [A[s]]
+    elif s>e:
+        return []
+    p=e
+    m=s
+    while m<p:
+        while A[m]>A[p]:
+            A[m],A[p-1]=A[p-1],A[m] #swap m with pivot value
+            A[p],A[p-1]=A[p-1],A[p] #swap pivot predecessor with pivot value
+            p-=1
+        m+=1
+    return quicksort(A,s,p-1)+[A[p]]+quicksort(A,p+1,e)
 
-#test = [21, 4, 1, 3, 9, 20, 25, 6, 21, 14]
-test = [21, 20, 25, 6, 21, 14]
+test = [21, 4, 1, 3, 9, 20, 25, 6, 21, 14]
+ltest=len(test)-1
 
-print (quicksort(test))
+print (quicksort(test,0,ltest))
 
 # Test cases
 #print (get_fib(9))
