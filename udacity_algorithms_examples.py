@@ -1,21 +1,33 @@
-"""You're going to write a binary search function.
-You should use an iterative approach - meaning
-using loops.
-Your function should take two inputs:
-a Python list to search through, and the value
-you're searching for.
-Assume the list only has distinct elements,
-meaning there are no repeated values, and 
-elements are in a strictly increasing order.
-Return the index of value, or -1 if the value
-doesn't exist in the list."""
+"""
+Tests for doctest module.
 
-def binary_search(input_array, value):
-    """Your code goes here."""
+>>> test = [21, 4, 1, 3, 9, 20, 25, 6, 21, 14]
+>>> print (quicksort(test,0,len(test)-1))
+[1, 3, 4, 6, 9, 14, 20, 21, 21, 25]
+>>> print (get_fib(9))
+34
+>>> print (get_fib(11))
+89
+>>> print (get_fib(0))
+0
+>>> test_list = [1,3,9,11,15,19,29,30]
+>>> test_val1 = 15
+>>> test_val2 = 29
+>>> test_val3 = 30
+>>> print (binary_search(test_list, test_val1))
+4
+>>> print (binary_search(test_list, test_val2))
+6
+>>> print (binary_search(test_list, test_val3))
+7
+"""
 
+def binary_search(input_array:list, value:int):
+    """
+    Binary search in sorted array
+    """
     high=len(input_array)
     low=0
-
     while low<high:
         mid=(high+low)//2
         if input_array[mid]==value:
@@ -26,7 +38,10 @@ def binary_search(input_array, value):
             high=mid-1
     return -1
 
-def get_fib(position):
+def get_fib(position:int):
+    """
+    Just simple reccursive example.
+    """
     if position < 0:
         return -1
     elif position == 0 or position == 1:
@@ -53,22 +68,6 @@ def quicksort(A:list, s:int,e:int):
         m+=1
     return quicksort(A,s,p-1)+[A[p]]+quicksort(A,p+1,e)
 
-test = [21, 4, 1, 3, 9, 20, 25, 6, 21, 14]
-ltest=len(test)-1
-
-print (quicksort(test,0,ltest))
-
-# Test cases
-#print (get_fib(9))
-#print (get_fib(11))
-#print (get_fib(0))
-
-
-
-test_list = [1,3,9,11,15,19,29,30]
-test_val1 = 15
-test_val2 = 29
-test_val3 = 30
-#print (binary_search(test_list, test_val1))
-#print (binary_search(test_list, test_val2))
-#print (binary_search(test_list, test_val3))
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose=True)
