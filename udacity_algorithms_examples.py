@@ -24,7 +24,7 @@ Tests for doctest module.
 
 def binary_search(input_array:list, value:int):
     """
-    Binary search in sorted array
+    Binary search in a sorted array.
     """
     high=len(input_array)
     low=0
@@ -38,16 +38,17 @@ def binary_search(input_array:list, value:int):
             high=mid-1
     return -1
 
-def get_fib(position:int):
+def get_fib(n:int):
     """
-    Just simple reccursive example.
+    Returns Nth Fobonacci number.
+    Simple reccursive example.
     """
-    if position < 0:
+    if n<0:
         return -1
-    elif position == 0 or position == 1:
-        return position
+    elif n==0 or n==1:
+        return n
     else:
-        return get_fib(position-1)+get_fib(position-2)
+        return get_fib(n-1)+get_fib(n-2)
 
 def quicksort(A:list, s:int,e:int):
     """
