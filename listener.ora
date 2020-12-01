@@ -1,0 +1,129 @@
+LISTENER = 
+  (DESCRIPTION_LIST = 
+    (DESCRIPTION = 
+      (ADDRESS = 
+        (PROTOCOL = TCP)
+        (HOST = isxl1221.mars-ad.net)
+        (PORT = 1521)
+      )
+      (ADDRESS = 
+        (PROTOCOL = IPC)
+        (KEY = EXTPROC1521)
+      )
+    )
+  )
+
+SID_LIST_LISTENER = 
+  (SID_LIST = 
+    (SID_DESC = 
+      (SID_NAME = AAB)
+      (GLOBAL_DBNAME = AAB)
+      (ORACLE_HOME = /oracle/AAB/121)
+      (ENVS = "TNS_ADMIN=/oracle/AAB/121/network/admin,ORACLE_BASE=/oracle/AAB")
+    )
+    (SID_DESC = 
+      (SID_NAME = AAB)
+      (GLOBAL_DBNAME = AAB_DGMGRL)
+      (ORACLE_HOME = /oracle/AAB/121)
+      (ENVS = "TNS_ADMIN=/oracle/AAB/121/network/admin,ORACLE_BASE=/oracle/AAB")
+    )
+    (SID_DESC = 
+      (SID_NAME = Q12)
+      (GLOBAL_DBNAME = Q1221)
+      (ORACLE_HOME = /oracle/Q12/121)
+      (ENVS = "TNS_ADMIN=/oracle/Q12/121/network/admin,ORACLE_BASE=/oracle/Q12")
+    )
+    (SID_DESC = 
+      (SID_NAME = Q12)
+      (GLOBAL_DBNAME = Q1221_DGMGRL)
+      (ORACLE_HOME = /oracle/Q12/121)
+      (ENVS = "TNS_ADMIN=/oracle/Q12/121/network/admin,ORACLE_BASE=/oracle/Q12")
+    )
+    (SID_DESC = 
+      (SID_NAME = BAB)
+      (GLOBAL_DBNAME = BAB21)
+      (ORACLE_HOME = /oracle/BAB/121)
+      (ENVS = "TNS_ADMIN=/oracle/BAB/121/network/admin,ORACLE_BASE=/oracle/BAB")
+    )
+    (SID_DESC = 
+      (SID_NAME = BAB)
+      (GLOBAL_DBNAME = BAB21_DGMGRL)
+      (ORACLE_HOME = /oracle/BAB/121)
+      (ENVS = "TNS_ADMIN=/oracle/BAB/121/network/admin,ORACLE_BASE=/oracle/BAB")
+    )
+    (SID_DESC = 
+      (SID_NAME = LAB)
+      (GLOBAL_DBNAME = LAB21)
+      (ORACLE_HOME = /oracle/LAB/121)
+      (ENVS = "TNS_ADMIN=/oracle/LAB/121/network/admin,ORACLE_BASE=/oracle/LAB")
+    )
+    (SID_DESC = 
+      (SID_NAME = LAB)
+      (GLOBAL_DBNAME = LAB21_DGMGRL)
+      (ORACLE_HOME = /oracle/LAB/121)
+      (ENVS = "TNS_ADMIN=/oracle/LAB/121/network/admin,ORACLE_BASE=/oracle/LAB")
+    )
+    (SID_DESC = 
+      (SID_NAME = AMB)
+      (GLOBAL_DBNAME = AMB21)
+      (ORACLE_HOME = /oracle/AMB/121)
+      (ENVS = "TNS_ADMIN=/oracle/AMB/121/network/admin,ORACLE_BASE=/oracle/AMB")
+    )
+    (SID_DESC = 
+      (SID_NAME = AMB)
+      (GLOBAL_DBNAME = AMB21_DGMGRL)
+      (ORACLE_HOME = /oracle/AMB/121)
+      (ENVS = "TNS_ADMIN=/oracle/AMB/121/network/admin,ORACLE_BASE=/oracle/AMB")
+    )
+    (SID_DESC = 
+      (SID_NAME = BEB)
+      (GLOBAL_DBNAME = BEB21)
+      (ORACLE_HOME = /oracle/BEB/121)
+      (ENVS = "TNS_ADMIN=/oracle/BEB/121/network/admin,ORACLE_BASE=/oracle/BEB")
+    )
+    (SID_DESC = 
+      (SID_NAME = BEB)
+      (GLOBAL_DBNAME = BEB21_DGMGRL)
+      (ORACLE_HOME = /oracle/BEB/121)
+      (ENVS = "TNS_ADMIN=/oracle/BEB/121/network/admin,ORACLE_BASE=/oracle/BEB")
+    )
+    (SID_DESC = 
+      (SID_NAME = BPB)
+      (GLOBAL_DBNAME = BPB21)
+      (ORACLE_HOME = /oracle/BPB/121)
+      (ENVS = "TNS_ADMIN=/oracle/BPB/121/network/admin,ORACLE_BASE=/oracle/BPB")
+    )
+    (SID_DESC = 
+      (SID_NAME = BPB)
+      (GLOBAL_DBNAME = BPB21_DGMGRL)
+      (ORACLE_HOME = /oracle/BPB/121)
+      (ENVS = "TNS_ADMIN=/oracle/BPB/121/network/admin,ORACLE_BASE=/oracle/BPB")
+    )
+    (SID_DESC = 
+      (SID_NAME = AEB)
+      (GLOBAL_DBNAME = AEB21)
+      (ORACLE_HOME = /oracle/AEB/121)
+      (ENVS = "TNS_ADMIN=/oracle/AEB/121/network/admin,ORACLE_BASE=/oracle/AEB")
+    )
+    (SID_DESC = 
+      (SID_NAME = AEB)
+      (GLOBAL_DBNAME = AEB21_DGMGRL)
+      (ORACLE_HOME = /oracle/AEB/121)
+      (ENVS = "TNS_ADMIN=/oracle/AEB/121/network/admin,ORACLE_BASE=/oracle/AEB")
+    )
+    (SID_DESC = 
+      (SID_NAME = LEB)
+      (GLOBAL_DBNAME = LEB21)
+      (ORACLE_HOME = /oracle/LEB/121)
+      (ENVS = "TNS_ADMIN=/oracle/LEB/121/network/admin,ORACLE_BASE=/oracle/LEB")
+    )
+    (SID_DESC = 
+      (SID_NAME = LEB)
+      (GLOBAL_DBNAME = LEB21_DGMGRL)
+      (ORACLE_HOME = /oracle/LEB/121)
+      (ENVS = "TNS_ADMIN=/oracle/LEB/121/network/admin,ORACLE_BASE=/oracle/LEB")
+    )
+  )
+
+ENABLE_GLOBAL_DYNAMIC_ENDPOINT_LISTENER = ON
+VALID_NODE_CHECKING_REGISTRATION_LISTENER = SUBNET
