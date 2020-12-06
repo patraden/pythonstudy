@@ -11,6 +11,7 @@ True
 >>> print (tree.search(6))
 False
 """
+
 class Node(object):
     def __init__(self, value):
         self.value = value
@@ -22,9 +23,35 @@ class BST(object):
         self.root = Node(root)
 
     def insert(self, new_val):
-        pass
+        """Insert new node to BST using helper method"""
+        self._insert(self.root, new_val)
+
+    def _insert(self, current, new_val):
+        """Recursive BST insert"""
+        if current.value < new_val:
+            if current.right:
+                self._insert(current.right, new_val)
+            else:
+                current.right = Node(new_val)
+        else:
+            if current.left:
+                self._insert(current.left, new_val)
+            else:
+                current.left = Node(new_val)
 
     def search(self, find_val):
+        """Search node in BST using helper method"""
+        return self._search(self.root, find_val)
+
+    def _search(self, current, find_val):
+        """Recursive BST search"""
+        if current:
+            if find_val == current.value:
+                return True
+            elif find_val < current.value:
+                return self._search(current.left, find_val)
+            else:
+                return self._search(current.right, find_val)
         return False
 
 if __name__ == "__main__":
