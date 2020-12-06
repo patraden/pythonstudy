@@ -21,6 +21,7 @@ True
 >>> print (tree.print_tree())
 6-16-4-5-2-13-3-1
 """
+
 class Node(object):
     """Individual Node for Binary tree class"""
     def __init__(self, value):
