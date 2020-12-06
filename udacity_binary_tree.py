@@ -21,81 +21,78 @@ True
 >>> print (tree.print_tree())
 6-16-4-5-2-13-3-1
 """
-
 class Node(object):
+    """Individual Node for Binary tree class"""
     def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
 
 class BinaryTree(object):
+    """Basic Binary tree class"""
     def __init__(self, root):
         self.root = Node(root)
 
     def search(self, find_val):
-        """Return True if the value
-        is in the tree, return
-        False otherwise."""
-#        return self.preorder_search(self.root, find_val)
-#        return self.inorder_search(self.root, find_val)
-        return self.postorder_search(self.root, find_val)
+        """Search tree nodes using helper method"""
+#        return self._preorder_search(self.root, find_val)
+        return self._inorder_search(self.root, find_val)
+#        return self._postorder_search(self.root, find_val)
 
     def print_tree(self):
-        """Print out all tree nodes
-        as they are visited in
+        """Print tree nodes using helper method"""
+#        return self._preorder_print(self.root,"")[:-1]
+        return self._inorder_print(self.root,"")[:-1]
+#        return self._postorder_print(self.root,"")[:-1]
+
+    def _preorder_search(self, start, find_val):
+        """Search tree nodes in
+        a pre-order traversal.
+        Return True if the value
+        is in the tree, return
+        False otherwise."""
+        return start.value == find_val or self._preorder_search(start.left,find_val) or self._preorder_search(start.right,find_val) if start else False
+
+    def _inorder_search(self, start, find_val):
+        """Search tree nodes in
+        a in-order traversal.
+        Return True if the value
+        is in the tree, return
+        False otherwise."""
+        return self._inorder_search(start.left,find_val) or start.value == find_val or self._inorder_search(start.right,find_val) if start else False
+
+    def _postorder_search(self, start, find_val):
+        """Search tree nodes in
+        a post-order traversal.
+        Return True if the value
+        is in the tree, return
+        False otherwise."""
+        return self._postorder_search(start.left,find_val) or self._postorder_search(start.right,find_val) or start.value == find_val if start else False
+
+    def _preorder_print(self, start, traversal):
+        """Print tree nodes in
         a pre-order traversal."""
-#        return self.preorder_print(self.root,"")[:-1]
-#        return self.inorder_print(self.root,"")[:-1]
-        return self.postorder_print(self.root,"")[:-1]
-
-    def preorder_search(self, start, find_val):
-        """Helper method - use this to create a 
-        recursive search solution."""
-        if start:
-            if start.value == find_val:
-                return True
-            else:
-                return self.preorder_search(start.left,find_val) or self.preorder_search(start.right,find_val)
-        return False
-
-    def inorder_search(self, start, find_val):
-        """Helper method - use this to create a 
-        recursive search solution."""
-        if start:
-            return self.inorder_search(start.left,find_val) or start.value == find_val or self.inorder_search(start.right,find_val)
-        return False
-
-    def postorder_search(self, start, find_val):
-        """Helper method - use this to create a 
-        recursive search solution."""
-        if start:
-            return self.inorder_search(start.left,find_val) or self.inorder_search(start.right,find_val) or start.value == find_val
-        return False
-
-    def preorder_print(self, start, traversal):
-        """Helper method - use this to create a 
-        recursive print solution."""
         if start:
             traversal += (str(start.value) + "-")
-            traversal = self.preorder_print(start.left, traversal)
-            traversal = self.preorder_print(start.right, traversal)
+            traversal = self._preorder_print(start.left, traversal)
+            traversal = self._preorder_print(start.right, traversal)
         return traversal
 
-    def inorder_print(self, start, traversal):
-        """Helper method - use this to create a 
-        recursive print solution."""
+    def _inorder_print(self, start, traversal):
+        """Print tree nodes in
+        a in-order traversal."""
         if start:
-            traversal = self.inorder_print(start.left, traversal)
+            traversal = self._inorder_print(start.left, traversal)
             traversal += (str(start.value) + "-")
-            traversal = self.inorder_print(start.right, traversal)
+            traversal = self._inorder_print(start.right, traversal)
         return traversal
 
-    def postorder_print(self, start, traversal):
-        """Helper method - use this to create a 
-        recursive print solution."""
+    def _postorder_print(self, start, traversal):
+        """Print tree nodes in
+        a post-order traversal."""
         if start:
-            traversal = self.postorder_print(start.left, traversal)
-            traversal = self.postorder_print(start.right, traversal)
+            traversal = self._postorder_print(start.left, traversal)
+            traversal = self._postorder_print(start.right, traversal)
             traversal += (str(start.value) + "-")
         return traversal
 
