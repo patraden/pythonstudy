@@ -24,7 +24,7 @@ Make sure you pass the test cases too!
 5
 """
 
-class Queue:
+class Queue(object):
     def __init__(self, head=None):
         self.storage = [head]
 
