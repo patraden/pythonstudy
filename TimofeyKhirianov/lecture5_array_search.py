@@ -1,4 +1,4 @@
-def array_search(a: list, n: int, x: int):
+def array_search(a: list, n: int, x: int) -> int:
     """ Осуществляет поиск числа х в массиве А
     от 0 до N-1 индекса ключительно.
     Возвращает индекс элемента ъ в массике А
@@ -35,4 +35,5 @@ def test_array_search():
         print("test#3 - fail")
 
 
-test_array_search()
+if __name__ == "__main__":
+    test_array_search()

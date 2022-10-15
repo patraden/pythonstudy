@@ -1,7 +1,5 @@
 def invert_array(a, n):
-    """ Обращение массива (поворот задом-наперед)
-        в рамках индексов от 0 до N-1
-    """
+    """ Inverts an array. """
     for k in range(n // 2):
         a[k], a[n - 1 - k] = a[n - 1 - k], a[k]
     return a
@@ -27,4 +25,5 @@ def test_invert_array():
         print("test#1 - fail")
 
 
-test_invert_array()
+if __name__ == "__main__":
+    test_invert_array()
