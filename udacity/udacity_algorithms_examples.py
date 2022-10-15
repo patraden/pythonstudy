@@ -42,7 +42,7 @@ def binary_search(input_array: list, value: int):
 def get_fib(n: int):
     """
     Returns Nth Fibonacci number.
-    Simple reccursive example.
+    Simple recursive example.
     """
     if n < 0:
         return -1
