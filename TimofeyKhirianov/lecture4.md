@@ -1,10 +1,8 @@
-# pythonstudy :memo:
 ## Lecture #4 [Link](https://www.youtube.com/watch?v=DvsCUI5FNnI)
 ### функции
-
 ```python
 def hello():
- print("hello world")
+    print("hello world")
 
 hello()
 f=hello # f links to the same function
@@ -12,16 +10,16 @@ f()
 ```
 
 ```python
-def hello(name):
- print("hello", name="World")
+def hello(name="World"):
+    print("hello", name)
 
 def max2(x,y):
- if x>y:
-  return x # дальнейшее выполнение прекращается!
- return y
+    if x>y:
+        return x # дальнейшее выполнение прекращается!
+    return y
 
 def max3(x,y,z):
- return max2(x,max2(y,z))
+    return max2(x,max2(y,z))
 
 hello("John")
 hello()
@@ -34,10 +32,10 @@ print(max3('ab', 'abc','abd')) # duck typing rule. Утиный полиморф
 
 ```python
 def hello_separated(name="World", separator="-"):
- print("Hello",name,sep=separator)
+    print("Hello",name,sep=separator)
 
 hello_separated(separator="***",  # Hello***World
-name = "John")
+                name = "John")
 ```
 call stack, стек вызовов функции
 main => FA => FB => FC => FD
@@ -49,9 +47,9 @@ main => FA => FB => FC => FD
 Проектирование "сверху-вниз"
 Предположим мы строим дом
 
- O       O        O        O
+O       O        O        O
 /|\ <=> /|\  <=> /|\  <=> /|\
- /\      /\       /\       /\
+/\      /\       /\       /\
 
 заказчик, менеджер, архитектор, прораб
 важно формализовать список параметров для заказа дома, например: локация и точка, размер
@@ -75,30 +73,28 @@ print('Ура! Дом построен!')
 шпростейший алгоритм перебора. это обычно и называется методом грубой силы
 
 ```python
-def is_simple_number(x):
-    """ Определяет, является ли число простым.
-        x - целое, положитеьное число.
-        если простое, то возвращает True,
-        а иначе - False"""
+def is_simple_number(x: int) -> bool:
+    """ Validates if integer number is simple. """
     divisor = 2
     while divisor < x:
-        if x%divisor == 0:
+        if x % divisor == 0:
             return False
-        divisor+=1
+        divisor += 1
     return True
 
-def factorize_number(x):
-    """ Раскладывает число на множители.
-        Печатает их на экран.
-        x - целое положительное число."""
-    divisor = 2
-    while x>1:
-        if x%divisor == 0:
-            print(divisor)
-            x //=divisor
-        else:
-            divisor+=1
 
-factorize_number(999)
-# print(is_simple_number(19))
+def factorize_number(x: int):
+    """ Factorizes integer number. """
+    divisor = 2
+    while x > 1:
+        if x % divisor == 0:
+            print(divisor)
+            x //= divisor
+        else:
+            divisor += 1
+
+
+if __name__ == "__main__":
+    factorize_number(999)
+    print(is_simple_number(19))
 ```

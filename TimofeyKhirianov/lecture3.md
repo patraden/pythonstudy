@@ -1,4 +1,3 @@
-# pythonstudy :memo:
 ## Lecture #3 [Link](https://www.youtube.com/watch?v=b8m9uRMpKJk)
 ### системы счисления
 #### унарная система счисления
@@ -75,25 +74,25 @@ X(8)=>X(2)=>X(4) - удобно переводить без применения
 в питоне работать с системами счисления очень удобно, можно писать в нужной системе
 
 ```python
-x = 0b111101 # 0b означает 2-ное основание системы счисления
-y = 0O0732 # 0O - 8-ное
-z = 0xFA0B # 16-ное
-t = int('z3f', base = 36) # 36-ное и макчимальное
-print(x) = 61 # будет печатать в 10 ной по умолчанию
+x = 0b111101 # 0b mean binary base of numerical system
+y = 0O0732 # 8-base
+z = 0xFA0B # 16-base
+t = int('z3f', base = 36) # 36 base number
+print(x) # 61 printed in decimal system
 x = 127
-bin(x) # перевод в 2-ную систему
-oct(x) # перевод в 8-ную
-hex(x) # перевод в 16-ричную
+bin(x) # translates to binary system
+oct(x) # translates to 8 base system
+hex(x) # translates to 16 base system
 ```
 
 ```python
 # переводим число в происзвольную систему счисления
 base = 7 # arbitrary
-x=int(input())
-while x>0: # пока есть цифры
- digit = x%base # схема горнера
- print(digit, end='')
- x//=base # <=> x=x//base зачеркнуть последнюю цифру
+x = int(input())
+while x>0: # while having numbers
+    digit = x % base # схема горнера
+    print(digit, end='')
+    x //= base # <=> x=x//base зачеркнуть последнюю цифру
 ```
 
 ###  однопрохожные алгоритмы

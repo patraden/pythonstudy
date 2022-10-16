@@ -1,4 +1,4 @@
-from TimofeyKhirianov import stack_class
+from TimofeyKhirianov import stack
 
 
 def rvp_2(s: str):
