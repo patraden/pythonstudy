@@ -1,5 +1,5 @@
 def pyramid_game(pyramid, size: int, source_i: int = 1, target_i: int = 3):
-    """рекурсивный алгоритм игры ханойские башни (классические 3 оси)"""
+    """Recursive algorythm for hanoi towers game (3 axes)."""
     pyramid_size = len(pyramid[source_i - 1])
     assert type(pyramid) is list and pyramid_size > 0 and size > 0
     if size == 1:

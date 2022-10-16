@@ -1,6 +1,5 @@
-# pythonstudy :memo:
 ## Lecture #7 [Link](https://www.youtube.com/watch?v=0Bc8zLURY-c)
-### рекурсия
+### Recursion
 
 ***очень важно*** очередная подзадача должна быть проще в том смысле, что она ближе к крайнему случаю
 когда мы придумываем рекурсия, мы должны иметь:
@@ -10,7 +9,6 @@
 
 ```python
 def matryoshka(n):
-    """"""
     if n==1:
         print("Матрешечка")
     else:
@@ -33,31 +31,33 @@ D1x=
 import graphics as gr
 
 window = gr.GraphWin("lecture 7", 300, 300)
-alpha=0.2
+alpha = 0.2
 
-def fractal_rectangle(A,B,C,D, depth=10): #координаты x,y в виде кортежей
+
+def fractal_rectangle(a, b, c, d, depth=10):  # координаты x,y в виде кортежей
     if depth < 1:
         return
-    for M,N in (A,B), (B,C), (C,D), (D,A):
-        gr.Line(gr.Point(*M),gr.Point(*N).draw(window))
-    A1=(A[0]*(1-alpha) + B[0]*alpha,A[1]*(1-alpha) + B[1]*alpha)
-    B1=(B[0]*(1-alpha) + C[0]*alpha,B[1]*(1-alpha) + C[1]*alpha)
-    C1=(C[0]*(1-alpha) + D[0]*alpha,C[1]*(1-alpha) + D[1]*alpha)
-    D1=(D[0]*(1-alpha) + A[0]*alpha,D[1]*(1-alpha) + A[1]*alpha)
-    fractal_rectangle(A1,B1,C1,D1, depth-1)
+    for M, N in (a, b), (b, c), (c, d), (d, a):
+        gr.Line(gr.Point(*M), gr.Point(*N).draw(window))
+    a1 = (a[0] * (1 - alpha) + b[0] * alpha, a[1] * (1 - alpha) + b[1] * alpha)
+    b1 = (b[0] * (1 - alpha) + c[0] * alpha, b[1] * (1 - alpha) + c[1] * alpha)
+    c1 = (c[0] * (1 - alpha) + d[0] * alpha, c[1] * (1 - alpha) + d[1] * alpha)
+    d1 = (d[0] * (1 - alpha) + a[0] * alpha, d[1] * (1 - alpha) + a[1] * alpha)
+    fractal_rectangle(a1, b1, c1, d1, depth - 1)
 
-fractal_rectangle((100,100),(100,500),(500,500),(100,500))
+
+fractal_rectangle((100, 100), (100, 500), (500, 500), (100, 500))
 ```
 #### фракториал (лучше сделать в цикле, конечно же)
 
 f(n)=(1 if n<=1) or (f(n-1)*n>1
 
 ```python
-def f(ni:int):
- assert n>=0, "Факториал отрицательного неопределен" # assert - оператор проверки, который вызывает ошибку
- if n==0:
-  return 1
- return n*f(n-1)
+def f(n:int):
+    assert n >= 0, "Факториал отрицательного неопределен" # assert - оператор проверки, который вызывает ошибку
+    if n == 0:
+        return 1
+    return n * f(n-1)
 ```
 
 #### алгоритм Евклида - поиск НОД(GCD)
@@ -98,22 +98,22 @@ a^n=a^n-1*a # рекурретное рассуждения для положи�
 pow(a,n)= (1 if n=0) or (pow(a,n-1)*a if n>0)
 
 ```python
-def pow(a:float,n:int):
- if n==0:
-  return 1
- else:
-  return pow(a, n-1)*a
+def pow1(a:float,n:int):
+    if n == 0:
+        return 1
+    else:
+        return pow1(a, n-1) * a
 ```
 
 assume n=2k => (a^2)^k
 ```python
-def pow(a:float,n:int):
- if n==0:
-  return 1
- elif n%2==1:
-  return pow(a, n-1)*a
- else: #n%2==0
- return pow(a*a,n//2)
+def pow2(a:float, n:int):
+    if n == 0:
+        return 1
+    elif n % 2 == 1:
+        return pow2(a, n-1) * a
+    else: # n % 2 == 0
+        return pow2(a * a, n // 2)
 ```
 
 #### ханойские башни
@@ -160,5 +160,3 @@ def pyramid_game_tests():
 if __name__ == "__main__":
     pyramid_game_tests()
 ```
-
-
