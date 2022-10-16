@@ -1,2 +1,2 @@
-# python study
-various useful notes about python and relevant tools
+### pythonstudy
+various useful notes and code snippets from random python courses

@@ -32,90 +32,82 @@
 один и тот же алгоритм сортировки может быть реализован как устойчиво, так и неустойчиво
 
 ```python
-def merge(A:list,B:list):
- C=[0]*(len(A)+len(B))
- i=k=n=0
- while i < len(A) and k < len(B):
-  if A[i] <= B[k]: # делаем "устойчивую" реализацию алгоритма
-   C[n]=A[i]
-   i+=1
-   n+=1
-  else:
-   C[n]=B[k]
-   k+=1
-   n+=1
- while i<len(A): # возможно ничего не "залил", поскольку i > len(A) уже
-  C[n]=A[i]
-  i+=1
-  n+=1
- while k<len(B):
-  C[n]=B[k]
-  k+=1
-  n+=1
- return C
-# рекурсивная функция сортировки
+def merge(a: list, b: list):
+    """ Merges two sorted arrays into one."""
+    c = [0] * (len(a) + len(b))
+    i = k = n = 0
+    while i < len(a) and k < len(b):
+        if a[i] <= b[k]:  # assume arrays sort is ascendant and stable (equal number ordering respected)
+            c[n] = a[i]
+            i += 1
+            n += 1
+        else:
+            c[n] = b[k]
+            k += 1
+            n += 1
+    while i < len(a):  #
+        c[n] = a[i]
+        i += 1
+        n += 1
+    while k < len(b):
+        c[n] = b[k]
+        k += 1
+        n += 1
+    return c
 
-def merge_sort(A):
- if len(A)<=1:
-  return
- middle=len(A)//2
- L=[A[i] for i in range(middle)]
- R=[A[i] for i in range(middle,len(A))]
- merge_sort(L)
- merge_sort(R)
- C=merge(L,R)
- for i in range(len(A)):
-  A[i]=C[i]
+
+def merge_sort(a: list):
+    """ Recursive ascendant merge sort. """
+    if len(a) <= 1:
+        return
+    middle = len(a) // 2
+    left = [a[_] for _ in range(middle)]
+    right = [a[_] for _ in range(middle, len(a))]
+    merge_sort(left)
+    merge_sort(right)
+    c = merge(left, right)
+    for i in range(len(a)):
+        a[i] = c[i]
 ```
-
-#### сортировка ТониХоара (QuickSort)
+#### Cортировка Тони Хоара (QuickSort)
 в самом питоне сортировка - прагматичная, которая является гибридом разных сортировок
 случайный элемент выбираем первый (т.е. барьерный = 1 элементу массива)
-
 ```python
-def hoar_sort(A):
- if len(A)<=1:
-  return # None
- L=[]
- M=[]
- R=[]
- barrier=A[0]
- for x in A:
-  if x<barrier:
-   L.append(x)
-  elif x==barrier:
-   M.append(x)
-  else:
-   R.append(x)
- hoar_sort(L)
- hoar_sort(R)
- k=0
- for x in L+M+R:
-  A[k]=x
-  k+=1
+def quick_sort(a: list):
+    """ Tony Hoare quick sort. """
+    if len(a) <= 1:
+        return  # None
+    left = []
+    middle = []
+    right = []
+    barrier = a[0]  # we can always change it to a random or some better logic
+    for x in a:
+        if x < barrier:
+            left.append(x)
+        elif x == barrier:
+            middle.append(x)
+        else:
+            right.append(x)
+    quick_sort(left)
+    quick_sort(right)
+    k = 0
+    for x in left + middle + right:
+        a[k] = x
+        k += 1
+
+
+if __name__ == "__main__":
+    test1 = [3, 4, 5, 1, 2, 3, 4]
+    quick_sort(test1)
+    print(test1)
 ```
-
-#### проверка сортировки массива за O(n)
-
+#### Проверка сортировки массива
 ```python
-def check_sorted(A,ascending=True):
- """ проверка отсортированности массива за O(n) """
- flag=True
- s=2*int(ascending)-1
- for i in range(len(A)-1):
-  if s*A[i]>s*A[i+1]:
-   flag=False
-   break
- return flag
-```
-
-#### бинарный поиск  массиве
-сортировка нужна на самом деле для быстрого поиска!
-[1,2,2,2,3,4,5,5,5,5,5,7,7,7,7,7]
-left_bound
-right_bound
-
-```python
-#[1,2,2,2,3,4,5,5,5,5,5,7,7,7,7,7]
-middle = (left + right)//2
+def check_sorted(a, ascending=True):
+    """ Checks if array is sorted in O(n). """
+    s = 2 * int(ascending) - 1
+    for i in range(len(a)-1):
+        if s * a[i] > s * a[i+1]:
+            return False
+    return True
 ```
